@@ -5,6 +5,12 @@ class PWF_Taxonomies_Initializer{
         add_action( 'init', array( $this, 'register_taxonomies' ) );
     }
 
+    public function register_terms(){
+        if( !term_exists( 'liverpool' )){
+            wp_insert_term( 'Liverpool', 'team' );
+        }
+    }
+
     public function register_taxonomies(){
         $labels_team = array(
         "name" => __( "Team" ),
