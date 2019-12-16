@@ -5,7 +5,11 @@ class PWF_Taxonomies_Initializer{
         add_action( 'init', array( $this, 'register_taxonomies' ) );
     }
 
+    //This is called with a 'register_activation hook in main file.'
     public function register_terms(){
+        //NOTE: Register terms must be called again, directly before registering terms
+        register_taxonomies();
+
         if( !term_exists( 'liverpool' )){
             wp_insert_term( 'Liverpool', 'team' );
         }
