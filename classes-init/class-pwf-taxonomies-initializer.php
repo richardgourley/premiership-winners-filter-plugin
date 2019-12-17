@@ -8,7 +8,7 @@ class PWF_Taxonomies_Initializer{
     //This is called with a 'register_activation hook in main file.'
     public function register_terms(){
         //NOTE: Register terms must be called again, directly before registering terms
-        register_taxonomies();
+        $this->register_taxonomies();
 
         if( !term_exists( 'liverpool' )){
             wp_insert_term( 'Liverpool', 'team' );
@@ -16,6 +16,10 @@ class PWF_Taxonomies_Initializer{
 
         if( !term_exists( 'manchester-united' )){
             wp_insert_term( 'Manchester United', 'team' );
+        }
+
+        if( !term_exists( '2008-2009' )){
+            wp_insert_term( '2008-2009', 'season' );
         }
 
         if( !term_exists( 'chelsea' )){
