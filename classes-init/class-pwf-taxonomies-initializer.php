@@ -57,11 +57,59 @@ class PWF_Taxonomies_Initializer{
             "rewrite" => array( 'slug' => 'league', 'with_front' => true, ),
             "show_admin_column" => false,
             "show_in_rest" => true,
-            "rest_base" => "team",
+            "rest_base" => "league",
             "rest_controller_class" => "WP_REST_Terms_Controller",
             "show_in_quick_edit" => false,
         );
 
         register_taxonomy( 'league', array( "team" ), $args_league );
+
+        $labels_season = array(
+        "name" => __( "Season" ),
+         "singular_name" => __( "Season" ),
+        );
+        $args_season = array(
+            "label" => __( "Season" ),
+            "labels" => $labels_season,
+            "public" => true,
+            "publicly_queryable" => true,
+            "hierarchical" => true,
+            "show_ui" => false,
+            "show_in_menu" => false,
+            "show_in_nav_menus" => false,
+            "query_var" => true,
+            "rewrite" => array( 'slug' => 'season', 'with_front' => true, ),
+            "show_admin_column" => false,
+            "show_in_rest" => true,
+            "rest_base" => "season",
+            "rest_controller_class" => "WP_REST_Terms_Controller",
+            "show_in_quick_edit" => false,
+        );
+
+        register_taxonomy( 'season', array( "team" ), $args_season );
+
+        $labels_position = array(
+        "name" => __( "Position" ),
+         "singular_name" => __( "Position" ),
+        );
+        $args_position = array(
+            "label" => __( "Position" ),
+            "labels" => $labels_position,
+            "public" => true,
+            "publicly_queryable" => true,
+            "hierarchical" => true,
+            "show_ui" => false,
+            "show_in_menu" => false,
+            "show_in_nav_menus" => false,
+            "query_var" => true,
+            "rewrite" => array( 'slug' => 'position', 'with_front' => true, ),
+            "show_admin_column" => false,
+            "show_in_rest" => true,
+            "rest_base" => "position",
+            "rest_controller_class" => "WP_REST_Terms_Controller",
+            "show_in_quick_edit" => false,
+        );
+
+        register_taxonomy( 'position', array( "team" ), $args_position );
     }
 }
