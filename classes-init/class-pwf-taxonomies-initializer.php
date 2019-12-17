@@ -13,6 +13,14 @@ class PWF_Taxonomies_Initializer{
         if( !term_exists( 'liverpool' )){
             wp_insert_term( 'Liverpool', 'team' );
         }
+
+        if( !term_exists( 'manchester-united' )){
+            wp_insert_term( 'Manchester United', 'team' );
+        }
+
+        if( !term_exists( 'chelsea' )){
+            wp_insert_term( 'Chelsea', 'team' );
+        }
     }
 
     public function register_taxonomies(){
