@@ -12,3 +12,9 @@
 if(!defined( 'ABSPATH' )) exit;
 
 require dirname(__FILE__) . 'classes-init/class-pwf-taxonomies-initializer.php';
+
+//registers taxonomies in constructor function
+$pwf_taxonomies_initializer = new PWF_Taxonomies_Initializer();
+
+//register terms on activation (only once)
+register_activation_hook( __FILE__, array( $pwf_taxonomies_initializer, 'register_terms' ) );
