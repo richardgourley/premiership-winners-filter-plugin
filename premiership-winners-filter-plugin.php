@@ -12,9 +12,21 @@
 if(!defined( 'ABSPATH' )) exit;
 
 require dirname(__FILE__) . 'classes-init/class-pwf-taxonomies-initializer.php';
+require dirname(__FILE__) . 'classes-init/class-pwf-custom-post-type-initializer.php';
+require dirname(__FILE__) . 'classes-init/class-pwf-posts-initializer.php';
 
 //registers taxonomies in constructor function
 $pwf_taxonomies_initializer = new PWF_Taxonomies_Initializer();
 
 //register terms on activation (only once)
 register_activation_hook( __FILE__, array( $pwf_taxonomies_initializer, 'register_terms' ) );
+
+//registers custom post type 'team'
+$pwf_custom_post_type_initializer = new PWF_Custom_Post_Type_Initializer();
+
+//flushes rewrites rules on plugin activation
+register_activation_hook( __FILE__, array( $pwf_custom_post_type_initializer, 'register_post_type_activation' ) );
+
+//inserts 'team' posts with post metadata and taxonomies detailling team stats
+$pwf_posts_initializer = new PWF_Posts_Initializer();
+register_activation_hook( __FILE__, array( $pwf_posts_initializer, 'insert_team_posts' ) );
