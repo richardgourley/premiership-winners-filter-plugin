@@ -10,16 +10,24 @@ class PWF_Taxonomies_Initializer{
         //NOTE: Register terms must be called again, directly before registering terms
         $this->register_taxonomies();
 
+        if( !term_exists( 'winner' )){
+            wp_insert_term( 'Winner', 'position' );
+        }
+
+        if( !term_exists( 'runner-up' )){
+            wp_insert_term( 'Runner Up', 'position' );
+        }
+
+        if( !term_exists( '2008-2009' )){
+            wp_insert_term( '2008-2009', 'season' );
+        }
+
         if( !term_exists( 'liverpool' )){
             wp_insert_term( 'Liverpool', 'team' );
         }
 
         if( !term_exists( 'manchester-united' )){
             wp_insert_term( 'Manchester United', 'team' );
-        }
-
-        if( !term_exists( '2008-2009' )){
-            wp_insert_term( '2008-2009', 'season' );
         }
 
         if( !term_exists( 'chelsea' )){
