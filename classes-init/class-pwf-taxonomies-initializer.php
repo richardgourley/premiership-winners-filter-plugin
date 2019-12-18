@@ -30,8 +30,64 @@ class PWF_Taxonomies_Initializer{
             wp_insert_term( 'Manchester United', 'team' );
         }
 
+        if( !term_exists( '2009-2010' )){
+            wp_insert_term( '2009-2010', 'season' );
+        }
+
         if( !term_exists( 'chelsea' )){
             wp_insert_term( 'Chelsea', 'team' );
+        }
+
+        if( !term_exists( '2010-2011' )){
+            wp_insert_term( '2010-2011', 'season' );
+        }
+
+        if( !term_exists( '2011-2012' )){
+            wp_insert_term( '2011-2012', 'season' );
+        }
+
+        if( !term_exists( 'manchester-city' )){
+            wp_insert_term( 'Manchester City', 'team' );
+        }
+
+        if( !term_exists( '2012-2013' )){
+            wp_insert_term( '2012-2013', 'season' );
+        }
+
+        if( !term_exists( '2013-2014' )){
+            wp_insert_term( '2013-2014', 'season' );
+        }
+
+        if( !term_exists( '2014-2015' )){
+            wp_insert_term( '2014-2015', 'season' );
+        }
+
+        if( !term_exists( '2015-2016' )){
+            wp_insert_term( '2015-2016', 'season' );
+        }
+
+        if( !term_exists( 'arsenal' )){
+            wp_insert_term( 'Arsenal', 'team' );
+        }
+
+        if( !term_exists( 'leicester-city' )){
+            wp_insert_term( 'Leicester City', 'team' );
+        }
+
+        if( !term_exists( '2016-2017' )){
+            wp_insert_term( '2016-2017', 'season' );
+        }
+
+        if( !term_exists( 'tottenham-hotspur' )){
+            wp_insert_term( 'Tottenham Hotspur', 'team' );
+        }
+
+        if( !term_exists( '2017-2018' )){
+            wp_insert_term( '2017-2018', 'season' );
+        }
+
+        if( !term_exists( '2018-2019' )){
+            wp_insert_term( '2018-2019', 'season' );
         }
     }
 
