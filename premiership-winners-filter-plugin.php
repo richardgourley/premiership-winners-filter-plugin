@@ -30,3 +30,26 @@ register_activation_hook( __FILE__, array( $pwf_custom_post_type_initializer, 'r
 //inserts 'team' posts with post metadata and taxonomies detailling team stats
 $pwf_posts_initializer = new PWF_Posts_Initializer();
 register_activation_hook( __FILE__, array( $pwf_posts_initializer, 'insert_team_posts' ) );
+
+function premiership_winners_plugin_test_shortcode(){
+    $output_message = '';
+
+    if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['pwf-filter'] )){
+        $output_message .= $_POST['pwf-filter'];
+    }
+
+    $html = '';
+    $html .= '<form action="' . esc_url( get_the_permalink() ) . '" method="post">';
+    $html .= '<select name="pwf-filter">';
+    $html .= '<option value="2008-2009">2008-2009</option>';
+    $html .= '<option value="2009-2010">2009-2010</option>';
+    $html .= '</select>';
+    $html .= '<input type="submit" value="Get results">';
+    $html .= '</form>';
+    $html .= $output_message;
+    return $html;
+
+    
+}
+
+add_shortcode('pw_plugin_test_shortcode', 'premiership_winners_plugin_test_shortcode');
