@@ -7,7 +7,7 @@ class PWF_Taxonomies_Initializer{
 
     //This is called with a 'register_activation hook in main file.'
     public function register_terms(){
-        //NOTE: Register terms must be called again, directly before registering terms
+        //NOTE: Register taxonomies must be called again, directly before registering terms
         $this->register_taxonomies();
 
         if( !term_exists( 'winner' )){
