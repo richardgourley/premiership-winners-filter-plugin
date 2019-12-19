@@ -10,17 +10,13 @@ class PWF_Posts_Initializer{
     Inserts all team posts for the plugin, linking posts to taxonomies and adding postmeta data
     *****/
     public function insert_team_posts(){
-        
+        $this->insert_team_data(
+            'Liverpool', 'liverpool', '2008-2009', 'runner-up', 77, 27, 86
+        );
     }
 
     private function insert_team_data(
-    	$team_name, 
-    	$team_slug, 
-    	$season, 
-    	$position, 
-    	$goals_for, 
-    	$goals_against, 
-    	$points
+    	$team_name, $team_slug, $season, $position, $goals_for, $goals_against, $points
     ){
         $post_array = array(
         'post_title' => $team_name,
