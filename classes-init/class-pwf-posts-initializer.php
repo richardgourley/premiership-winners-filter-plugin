@@ -13,4 +13,8 @@ class PWF_Posts_Initializer{
         
     }
 
+    private function insert_team_data($team_name, $team_slug, $season, $goals_for, $goals_against, $points, $position){
+
+    }
+
 }
