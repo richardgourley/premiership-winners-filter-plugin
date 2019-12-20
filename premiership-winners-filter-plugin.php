@@ -14,6 +14,10 @@ if(!defined( 'ABSPATH' )) exit;
 require dirname(__FILE__) . '/classes-init/class-pwf-taxonomies-initializer.php';
 require dirname(__FILE__) . '/classes-init/class-pwf-custom-post-type-initializer.php';
 require dirname(__FILE__) . '/classes-init/class-pwf-posts-initializer.php';
+require dirname(__FILE__) . '/classes-init/class-pwf-scripts-initializer.php';
+
+//enqueues css file
+$pwf_scripts_initializer = new PWF_Scripts_Initializer();
 
 //registers taxonomies in constructor function
 $pwf_taxonomies_initializer = new PWF_Taxonomies_Initializer();
@@ -31,25 +35,39 @@ register_activation_hook( __FILE__, array( $pwf_custom_post_type_initializer, 'r
 $pwf_posts_initializer = new PWF_Posts_Initializer();
 register_activation_hook( __FILE__, array( $pwf_posts_initializer, 'insert_team_posts' ) );
 
+
 function premiership_winners_plugin_test_shortcode(){
     $output_message = '';
 
-    if( $_SERVER['REQUEST_METHOD'] == 'POST' && isset( $_POST['pwf-filter'] )){
-        $output_message .= $_POST['pwf-filter'];
+    if( $_SERVER['REQUEST_METHOD'] == 'POST' 
+        && isset( $_POST['pwf_form_nonce'] )
+        && wp_verify_nonce( $_POST['pwf_form_nonce'], 'pwf_form_action' )){
+
+        $output_message .= $_POST['pwf-options'];
     }
 
     $html = '';
+    $html .= '<div class="pwf-grid">';
+
+    $html .= '<div>';
     $html .= '<form action="' . esc_url( get_the_permalink() ) . '" method="post">';
-    $html .= '<select name="pwf-filter">';
+    $html .= wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' );
+    $html .= '<select name="pwf-options">';
     $html .= '<option value="2008-2009">2008-2009</option>';
     $html .= '<option value="2009-2010">2009-2010</option>';
     $html .= '</select>';
     $html .= '<input type="submit" value="Get results">';
     $html .= '</form>';
-    $html .= $output_message;
+    $html .= '</div>';
+
+    $html .= '<div>';
+    $html .= '<h2>' . $output_message . '</h2>';
+    $html .= '</div>';
+
+    $html .= '</div>';
+
     return $html;
 
-    
 }
 
 add_shortcode('pw_plugin_test_shortcode', 'premiership_winners_plugin_test_shortcode');
