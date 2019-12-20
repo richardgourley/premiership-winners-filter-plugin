@@ -35,39 +35,60 @@ register_activation_hook( __FILE__, array( $pwf_custom_post_type_initializer, 'r
 $pwf_posts_initializer = new PWF_Posts_Initializer();
 register_activation_hook( __FILE__, array( $pwf_posts_initializer, 'insert_team_posts' ) );
 
+class My_Test_Class{
+    public function __construct(){
 
-function premiership_winners_plugin_test_shortcode(){
-    $output_message = '';
-
-    if( $_SERVER['REQUEST_METHOD'] == 'POST' 
-        && isset( $_POST['pwf_form_nonce'] )
-        && wp_verify_nonce( $_POST['pwf_form_nonce'], 'pwf_form_action' )){
-
-        $output_message .= $_POST['pwf-options'];
     }
 
-    $html = '';
-    $html .= '<div class="pwf-grid">';
+    public function get_select_form($output_message){
+        $html = '';
+        $html .= '<div class="pwf-grid">';
 
-    $html .= '<div>';
-    $html .= '<form action="' . esc_url( get_the_permalink() ) . '" method="post">';
-    $html .= wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' );
-    $html .= '<select name="pwf-options">';
-    $html .= '<option value="2008-2009">2008-2009</option>';
-    $html .= '<option value="2009-2010">2009-2010</option>';
-    $html .= '</select>';
-    $html .= '<input type="submit" value="Get results">';
-    $html .= '</form>';
-    $html .= '</div>';
+        $html .= '<div>';
+        $html .= '<form action="' . esc_url( get_the_permalink() ) . '" method="post">';
+        $html .= wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' );
+        $html .= '<select name="pwf-options">';
+        $html .= '<option value="2008-2009">2008-2009</option>';
+        $html .= '<option value="2009-2010">2009-2010</option>';
+        $html .= '</select>';
+        $html .= '<input type="submit" value="Get results">';
+        $html .= '</form>';
+        $html .= '</div>';
 
-    $html .= '<div>';
-    $html .= '<h2>' . $output_message . '</h2>';
-    $html .= '</div>';
+        $html .= '<div>';
+        $html .= '<h2>' . $output_message . '</h2>';
+        $html .= '</div>';
 
-    $html .= '</div>';
+        $html .= '</div>';
 
-    return $html;
+        return $html;
+    }
 
+    public function handle_form(){
+        $output_message = '';
+
+        if( $_SERVER['REQUEST_METHOD'] == 'POST' 
+            && isset( $_POST['pwf_form_nonce'] )
+            && wp_verify_nonce( $_POST['pwf_form_nonce'], 'pwf_form_action' )){
+
+            $output_message .= $_POST['pwf-options'];
+        }
+
+        return $output_message;
+    }
+
+    public function premiership_winners_plugin_test_shortcode(){
+        $output_message = $this->handle_form();
+        $this->get_post_ids();
+        return $this->get_select_form( $output_message );
+    }
+
+    public function get_post_ids(){
+        $query = new WP_Query( array( 'post_type' => 'team' ) );
+        var_dump( $query->posts );
+    }
 }
 
-add_shortcode('pw_plugin_test_shortcode', 'premiership_winners_plugin_test_shortcode');
+$my_test_class = new My_Test_Class();
+
+add_shortcode('pw_plugin_test_shortcode', array( $my_test_class, 'premiership_winners_plugin_test_shortcode' ));
