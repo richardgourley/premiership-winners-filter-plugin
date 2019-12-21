@@ -15,6 +15,8 @@ require dirname(__FILE__) . '/classes-init/class-pwf-taxonomies-initializer.php'
 require dirname(__FILE__) . '/classes-init/class-pwf-custom-post-type-initializer.php';
 require dirname(__FILE__) . '/classes-init/class-pwf-posts-initializer.php';
 require dirname(__FILE__) . '/classes-init/class-pwf-scripts-initializer.php';
+require dirname(__FILE__) . '/classes-model/class-pwf-model.php';
+require dirname(__FILE__) . '/classes-display/class-pwf-display.php';
 
 //enqueues css file
 $pwf_scripts_initializer = new PWF_Scripts_Initializer();
