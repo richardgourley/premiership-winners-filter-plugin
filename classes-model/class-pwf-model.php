@@ -2,8 +2,10 @@
 
 class PWF_Model{
     public function __construct(){
-        //add shortcode
+        
     }
+
+
 
     
 }
