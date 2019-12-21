@@ -5,7 +5,11 @@ class PWF_Model{
         
     }
 
-    public function get_only_winners(){
+    public function get_all_teams(){
+        
+    }
+
+    public function get_winners(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'points',
