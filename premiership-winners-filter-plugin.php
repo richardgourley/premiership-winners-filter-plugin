@@ -34,4 +34,3 @@ register_activation_hook( __FILE__, array( $pwf_custom_post_type_initializer, 'r
 //inserts 'team' posts with post metadata and taxonomies detailling team stats
 $pwf_posts_initializer = new PWF_Posts_Initializer();
 register_activation_hook( __FILE__, array( $pwf_posts_initializer, 'insert_team_posts' ) );
-
