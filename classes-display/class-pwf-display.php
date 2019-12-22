@@ -60,13 +60,15 @@ class PWF_Display{
         $results .= '<table class="form-table">';
         $results .= '<tr>';
         $results .= '<th>Season</th>';
+        $results .= '<th>Position</th>';
         $results .= '<th>Team</th>';
         $results .= '<th>Points</th>';
         $results .= '</tr>';
         
-        foreach( $query->posts as $result){
+        foreach( $posts->posts as $result){
             $results .= '<tr>';
             $results .= '<td>' . get_the_terms( $result->ID, 'season' )[0]->name . '</td>';
+            $results .= '<td>' . get_the_terms( $result->ID, 'position' )[0]->name . '</td>';
             $results .= '<td>' . $result->post_title . '</td>';
             $results .= '<td>' . get_post_meta( $result->ID, 'Points', true ) . '</td>';
             $results .= '</tr>';
@@ -79,6 +81,7 @@ class PWF_Display{
 
     public function display_form_and_results($results){
         $html = '';
+        $html .= '<h3>We took all the data of Premiership winners and runners up over the last 10 years. Filter the results from the drop-down menu below.</h3>';
         $html .= '<div class="pwf-grid">';
 
         $html .= '<div>';
