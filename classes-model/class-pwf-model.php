@@ -97,6 +97,26 @@ class PWF_Model{
 
         return $query;
     }
+
+    public function get_winners_least_goals_conceded(){
+        $args = array(
+            'post_type'  => 'team',
+            'meta_key'   => 'Goals Against',
+            'orderby'    => 'meta_value_num',
+            'order'      => 'ASC',
+            'posts_per_page' => '-1',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'position',
+                    'field' => 'slug',
+                    'terms' => 'winner'
+                )
+            )
+        );
+        $query = new WP_Query( $args );
+
+        return $query;
+    }
     
 }
 
