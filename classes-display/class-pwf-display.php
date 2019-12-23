@@ -11,7 +11,7 @@ class PWF_Display{
     public function display_results(){
         $selected_option = $this->handle_form();
         $results_as_table = $this->get_results( $selected_option );
-        return $this->display_form_and_results( $results_as_table );
+        return $this->display_form_and_results( $results_as_table, $selected_option );
     }
 
     public function handle_form(){
@@ -36,17 +36,17 @@ class PWF_Display{
         if( $selected_option == 'get_all_teams' ){
             //returns a table of results
             return $this->get_results_in_table_format( 
-                $this->model_class->get_all_teams() 
+                $this->model_class->get_all_teams()
             );
         }
         if( $selected_option == 'winners' ){
             return $this->get_results_in_table_format( 
-                $this->model_class->get_winners() 
+                $this->model_class->get_winners()
             );
         }
         if( $selected_option == 'runners-up' ){
             return $this->get_results_in_table_format( 
-                $this->model_class->get_runners_up() 
+                $this->model_class->get_runners_up()
             );
         }
         
@@ -79,9 +79,10 @@ class PWF_Display{
         return $results;
     }
 
-    public function display_form_and_results($results){
+    public function display_form_and_results($results, $selected_option){
         $html = '';
         $html .= '<div class="pwf-intro-text">';
+        $html .= '<h1>Selected option is: ' . $selected_option . '</h1>';
         $html .= '<h4>We took all the data of Premiership winners and runners up over the last 10 years. Filter the results from the drop-down menu below.</h4>';
         $html .= '</div>';
         $html .= '<div class="pwf-grid">';
