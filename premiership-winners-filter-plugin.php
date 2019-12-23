@@ -36,3 +36,8 @@ register_activation_hook( __FILE__, array( $pwf_custom_post_type_initializer, 'r
 //inserts 'team' posts with post metadata and taxonomies detailling team stats
 $pwf_posts_initializer = new PWF_Posts_Initializer();
 register_activation_hook( __FILE__, array( $pwf_posts_initializer, 'insert_team_posts' ) );
+
+$pwf_model_class = new PWF_Model();
+
+//Display class takes instance of model class to display results from model class queries in the shortcode registered in the constructor.
+$pwf_display_class = new PWF_Display( $pwf_model_class );
