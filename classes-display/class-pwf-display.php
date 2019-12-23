@@ -54,6 +54,12 @@ class PWF_Display{
                 $this->model_class->get_winners_lowest_points()
             );
         }
+
+        if( $selected_option == 'winners-most-goals' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_winners_most_goals()
+            );
+        }
         
         //return a blank string if $selected option doesn't match
         return '';
@@ -62,11 +68,13 @@ class PWF_Display{
     public function get_results_in_table_format($posts){
         $results = '';
 
+        $results .= '<div class="pwf-display-table>"';
         $results .= '<table class="form-table">';
         $results .= '<tr>';
         $results .= '<th>Season</th>';
         $results .= '<th>Position</th>';
         $results .= '<th>Team</th>';
+        $results .= '<th>Goals For</th>';
         $results .= '<th>Points</th>';
         $results .= '</tr>';
         
@@ -75,11 +83,13 @@ class PWF_Display{
             $results .= '<td>' . get_the_terms( $result->ID, 'season' )[0]->name . '</td>';
             $results .= '<td>' . get_the_terms( $result->ID, 'position' )[0]->name . '</td>';
             $results .= '<td>' . $result->post_title . '</td>';
+            $results .= '<td>' . get_post_meta( $result->ID, 'Goals For', true ) . '</td>';
             $results .= '<td>' . get_post_meta( $result->ID, 'Points', true ) . '</td>';
             $results .= '</tr>';
         }
 
         $results .= '</table>';
+        $results .= '</div>';
 
         return $results;
     }
@@ -140,6 +150,12 @@ class PWF_Display{
             $html .= '<option value="winners-lowest-points" selected>Winners - Lowest points</option>';
         }else{
             $html .= '<option value="winners-lowest-points">Winners - Lowest points</option>';
+        }
+
+        if( $selected_option == 'winners-most-goals' ){
+            $html .= '<option value="winners-most-goals" selected>Winners - Most Goals Scored</option>';
+        }else{
+            $html .= '<option value="winners-most-goals">Winners - Most Goals Scored</option>';
         }
 
         return $html;
