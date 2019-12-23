@@ -81,17 +81,18 @@ class PWF_Display{
 
     public function display_form_and_results($results){
         $html = '';
-        $html .= '<h3>We took all the data of Premiership winners and runners up over the last 10 years. Filter the results from the drop-down menu below.</h3>';
+        $html .= '<h4>We took all the data of Premiership winners and runners up over the last 10 years. Filter the results from the drop-down menu below.</h4>';
         $html .= '<div class="pwf-grid">';
 
         $html .= '<div>';
+        $html .= '<p>Filter results</p>';
         $html .= '<form action="' . esc_url( get_the_permalink() ) . '" method="post">';
         $html .= wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' );
         $html .= '<select name="pwf-options">';
-        $html .= '<option value="winners">Winners Only</option>';
-        $html .= '<option value="runners-up">Runners Up Only</option>';
+        $html .= '<option value="winners">Winners - Highest points</option>';
+        $html .= '<option value="runners-up">Runners Up - Highest points</option>';
         $html .= '</select>';
-        $html .= '<input type="submit" value="Get results">';
+        $html .= '<input type="submit" value="Filter results">';
         $html .= '</form>';
         $html .= '</div>';
 
