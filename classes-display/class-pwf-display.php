@@ -68,13 +68,14 @@ class PWF_Display{
     public function get_results_in_table_format($posts){
         $results = '';
 
-        $results .= '<div class="pwf-display-table>"';
+        $results .= '<div class="pwf-display-table">';
         $results .= '<table class="form-table">';
         $results .= '<tr>';
         $results .= '<th>Season</th>';
         $results .= '<th>Position</th>';
         $results .= '<th>Team</th>';
         $results .= '<th>Goals For</th>';
+        $results .= '<th>Goals Against</th>';
         $results .= '<th>Points</th>';
         $results .= '</tr>';
         
@@ -84,7 +85,8 @@ class PWF_Display{
             $results .= '<td>' . get_the_terms( $result->ID, 'position' )[0]->name . '</td>';
             $results .= '<td>' . $result->post_title . '</td>';
             $results .= '<td>' . get_post_meta( $result->ID, 'Goals For', true ) . '</td>';
-            $results .= '<td>' . get_post_meta( $result->ID, 'Points', true ) . '</td>';
+            $results .= '<td>' . get_post_meta( $result->ID, 'Goals Against', true ) . '</td>';
+            $results .= '<td><strong>' . get_post_meta( $result->ID, 'Points', true ) . '</strong></td>';
             $results .= '</tr>';
         }
 
