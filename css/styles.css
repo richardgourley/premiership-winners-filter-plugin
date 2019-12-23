@@ -16,6 +16,9 @@
   .pwf-form-button{
     padding-bottom:9px;
   }
+  .pwf-display-table{
+    font-size:80%;
+  }
 }
 @media screen and (min-width: 481px) and (max-width: 768px) {
   .pwf-grid{
@@ -35,6 +38,9 @@
   .pwf-form-button{
     padding-bottom:9px;
   }
+  .pwf-display-table{
+    font-size:90%;
+  }
 }
 @media screen and (min-width: 769px) {
   .pwf-grid{
@@ -53,5 +59,8 @@
   }
   .pwf-form-button{
     padding-bottom:9px;
+  }
+  .pwf-display-table{
+    font-size:100%;
   }
 }
