@@ -60,6 +60,12 @@ class PWF_Display{
                 $this->model_class->get_winners_most_goals()
             );
         }
+
+        if( $selected_option == 'winners-least-goals-conceded' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_winners_least_goals_conceded()
+            );
+        }
         
         //return a blank string if $selected option doesn't match
         return '';
@@ -99,7 +105,6 @@ class PWF_Display{
     public function display_form_and_results($results, $selected_option){
         $html = '';
         $html .= '<div class="pwf-intro-text">';
-        $html .= '<h1>Selected option is: ' . $selected_option . '</h1>';
         $html .= '<h4>We took all the data of Premiership winners and runners up over the last 10 years. Filter the results from the drop-down menu below.</h4>';
         $html .= '</div>';
         $html .= '<div class="pwf-grid">';
@@ -158,6 +163,12 @@ class PWF_Display{
             $html .= '<option value="winners-most-goals" selected>Winners - Most Goals Scored</option>';
         }else{
             $html .= '<option value="winners-most-goals">Winners - Most Goals Scored</option>';
+        }
+
+        if( $selected_option == 'winners-least-goals-conceded' ){
+            $html .= '<option value="winners-least-goals-conceded" selected>Winners - Least Goals Conceded</option>';
+        }else{
+            $html .= '<option value="winners-least-goals-conceded">Winners - Least Goals Conceded</option>';
         }
 
         return $html;
