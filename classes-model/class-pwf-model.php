@@ -6,7 +6,16 @@ class PWF_Model{
     }
 
     public function get_all_teams(){
+        $args = array(
+            'post_type'  => 'team',
+            'meta_key'   => 'points',
+            'orderby'    => 'meta_value_num',
+            'order'      => 'DESC',
+            'posts_per_page' => '-1',
+        );
+        $query = new WP_Query( $args );
 
+        return $query;
     }
 
     public function get_winners(){
