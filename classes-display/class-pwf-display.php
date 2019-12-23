@@ -112,5 +112,14 @@ class PWF_Display{
         return $html;
     }
 
+    /***
+    * @return string
+    * returns a string of html of options for the filter form
+    * highlights selected option on display form of the last chosen option
+    ***/
+    public function generate_form_options($selected_option){
+        $html = '';
+    }
+
 
 }
