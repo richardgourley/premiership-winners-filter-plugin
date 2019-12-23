@@ -49,6 +49,11 @@ class PWF_Display{
                 $this->model_class->get_runners_up()
             );
         }
+        if( $selected_option == 'winners-lowest-points' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_winners_lowest_points()
+            );
+        }
         
         //return a blank string if $selected option doesn't match
         return '';
@@ -93,8 +98,7 @@ class PWF_Display{
         $html .= '<form action="' . esc_url( get_the_permalink() ) . '" method="post">';
         $html .= wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' );
         $html .= '<select name="pwf-options">';
-        $html .= '<option value="winners">Winners - Highest points</option>';
-        $html .= '<option value="runners-up">Runners Up - Highest points</option>';
+        $html .= $this->generate_form_options($selected_option);
         $html .= '</select>';
         $html .= '</div>';
         $html .= '<div class="pwf-form-button">';
@@ -115,11 +119,30 @@ class PWF_Display{
     /***
     * @return string
     * returns a string of html of options for the filter form
-    * highlights selected option on display form of the last chosen option
+    * highlights options as 'selected' for most recent form request
     ***/
     public function generate_form_options($selected_option){
         $html = '';
-    }
 
+        if( $selected_option == 'winners' ){
+            $html .= '<option value="winners" selected>Winners - Highest points</option>'; 
+        }else{
+            $html .= '<option value="winners">Winners - Highest points</option>';
+        }
+
+        if( $selected_option == 'runners-up' ){
+            $html .= '<option value="runners-up" selected>Runners Up - Highest points</option>';
+        }else{
+            $html .= '<option value="runners-up">Runners Up - Highest points</option>';
+        }
+
+        if( $selected_option == 'winners-lowest-points' ){
+            $html .= '<option value="winners-lowest-points" selected>Winners - Lowest points</option>';
+        }else{
+            $html .= '<option value="winners-lowest-points">Winners - Lowest points</option>';
+        }
+
+        return $html;
+    }
 
 }
