@@ -66,6 +66,12 @@ class PWF_Display{
                 $this->model_class->get_winners_least_goals_conceded()
             );
         }
+
+        if( $selected_option == 'average-points' ){
+            return $this->display_average_points( 
+                $this->model_class->get_average_points()
+            );
+        }
         
         //return a blank string if $selected option doesn't match
         return '';
@@ -102,10 +108,26 @@ class PWF_Display{
         return $results;
     }
 
+    public function display_average_points($results){
+        $html = '';
+        $html .= '<p>Last 11 premiership seasons:</p>';
+        foreach( $results as $result ){
+            if( $result->position == 'Winner' ){
+                $html .= '<h3>Average Points per winner:</h3>';
+                $html .= '<h2>' . $result->points_total / $result->total . '</h2>';
+            }
+            if( $result->position == 'Runner Up' ){
+                $html .= '<h3>Average Points per runner-up:</h3>';
+                $html .= '<h2>' . $result->points_total / $result->total . '</h2>';
+            }
+        }
+        return $html;
+    }
+
     public function display_form_and_results($results, $selected_option){
         $html = '';
         $html .= '<div class="pwf-intro-text">';
-        $html .= '<h4>We took all the data of Premiership winners and runners up over the last 10 years. Filter the results from the drop-down menu below.</h4>';
+        $html .= '<h4>We took all the data of Premiership winners and runners up over the last 11 years. Filter the results from the drop-down menu below.</h4>';
         $html .= '</div>';
         $html .= '<div class="pwf-grid">';
 
