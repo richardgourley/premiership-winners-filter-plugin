@@ -142,9 +142,9 @@ class PWF_Display{
         $html = '';
         
         if( $selected_option == 'get-all-teams' ){
-            $html .= '<option value="get-all-teams" selected>Winners and runners-up - Most Points</option>'; 
+            $html .= '<option value="get-all-teams" selected>Winners & runners-up - Highest Points</option>'; 
         }else{
-            $html .= '<option value="get-all-teams">Winners and runners-up - Most Points</option>';
+            $html .= '<option value="get-all-teams">Winners & runners-up - Highest Points</option>';
         }
       
         if( $selected_option == 'winners' ){
@@ -175,6 +175,12 @@ class PWF_Display{
             $html .= '<option value="winners-least-goals-conceded" selected>Winners - Least Goals Conceded</option>';
         }else{
             $html .= '<option value="winners-least-goals-conceded">Winners - Least Goals Conceded</option>';
+        }
+
+        if( $selected_option == 'average-points'){
+            $html .= '<option value="average-points" selected>Winners & Runners-Up - Average Points</option>';
+        }else{
+            $html .= '<option value="average-points">Winners & Runners-Up - Average Points</option>';
         }
 
         return $html;
