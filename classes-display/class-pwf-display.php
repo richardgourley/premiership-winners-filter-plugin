@@ -23,7 +23,7 @@ class PWF_Display{
 
             $selected_option .= $_POST['pwf-options'];
         }else{
-            $selected_option = 'get_all_teams';
+            $selected_option .= 'get-all-teams';
         }
 
         return $selected_option;
@@ -33,7 +33,7 @@ class PWF_Display{
     *@return - html string of results in table form
     ****/
     public function get_results($selected_option){
-        if( $selected_option == 'get_all_teams' ){
+        if( $selected_option == 'get-all-teams' ){
             //returns a table of results
             return $this->get_results_in_table_format( 
                 $this->model_class->get_all_teams()
@@ -140,7 +140,13 @@ class PWF_Display{
     ***/
     public function generate_form_options($selected_option){
         $html = '';
-
+        
+        if( $selected_option == 'get-all-teams' ){
+            $html .= '<option value="get-all-teams" selected>Winners and runners-up - Most Points</option>'; 
+        }else{
+            $html .= '<option value="get-all-teams">Winners and runners-up - Most Points</option>';
+        }
+      
         if( $selected_option == 'winners' ){
             $html .= '<option value="winners" selected>Winners - Highest points</option>'; 
         }else{
