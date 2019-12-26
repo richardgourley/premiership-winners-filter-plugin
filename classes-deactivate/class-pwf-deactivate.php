@@ -21,7 +21,10 @@ class PWF_Deactivate{
 
     public function delete_posts_postmeta(){
         global $wpdb;
-        $wpdb->get_results("");
+        $wpdb->get_results("DELETE wp_posts, wp_postmeta FROM wp_posts
+            INNER JOIN wp_postmeta
+            ON wp_postmeta.post_id = wp_posts.ID
+            WHERE wp_posts.post_type = 'team'");
     }
 
 
