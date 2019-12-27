@@ -17,6 +17,7 @@ require dirname(__FILE__) . '/classes-init/class-pwf-posts-initializer.php';
 require dirname(__FILE__) . '/classes-init/class-pwf-scripts-initializer.php';
 require dirname(__FILE__) . '/classes-model/class-pwf-model.php';
 require dirname(__FILE__) . '/classes-display/class-pwf-display.php';
+require dirname(__FILE__) . '/classes-deactivate/class-pwf-deactivate.php';
 
 //enqueues css file
 $pwf_scripts_initializer = new PWF_Scripts_Initializer();
@@ -41,3 +42,6 @@ $pwf_model_class = new PWF_Model();
 
 //Display class takes instance of model class to display results from model class queries in the shortcode registered in the constructor.
 $pwf_display_class = new PWF_Display( $pwf_model_class );
+
+$pwf_deactivate = new PWF_Deactivate();
+register_deactivation_hook( __FILE__, array( $pwf_deactivate, 'deactivate_plugin' ) );
