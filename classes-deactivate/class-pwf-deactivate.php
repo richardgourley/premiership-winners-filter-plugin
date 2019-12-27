@@ -5,6 +5,15 @@ class PWF_Deactivate{
         
     }
 
+    /************
+    * This function is called in main file as a 'deactivation' hook.
+    * Calls other functions in this class 
+    ************/
+    public function deactivate_plugin(){
+        $this->unregister_custom_post_type();
+        $this->unregister_taxonomies();
+    }
+
     public function unregister_custom_post_type(){
         unregister_post_type( 'team' );
     }
@@ -15,7 +24,7 @@ class PWF_Deactivate{
         unregister_taxonomy( 'position' );
     }
 
-    public function delete_terms(){
+    public function delete_terms_taxonomy_relationships(){
         
     }
 
