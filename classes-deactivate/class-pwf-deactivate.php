@@ -12,6 +12,7 @@ class PWF_Deactivate{
     public function deactivate_plugin(){
         $this->unregister_custom_post_type();
         $this->unregister_taxonomies();
+        $this->delete_posts_and_related_data();
     }
 
     public function unregister_custom_post_type(){
@@ -24,16 +25,21 @@ class PWF_Deactivate{
         unregister_taxonomy( 'position' );
     }
 
-    public function delete_terms_taxonomy_relationships(){
-        
-    }
-
-    public function delete_posts_postmeta(){
+    public function delete_posts_and_related_data(){
         global $wpdb;
-        $wpdb->get_results("DELETE wp_posts, wp_postmeta FROM wp_posts
-            INNER JOIN wp_postmeta
-            ON wp_postmeta.post_id = wp_posts.ID
-            WHERE wp_posts.post_type = 'team'");
+        $wpdb->get_results(
+            "DELETE wp_posts, wp_postmeta, wp_terms, wp_term_taxonomy, wp_term_relationships
+            FROM wp_posts 
+            INNER JOIN wp_postmeta 
+            ON wp_posts.ID = wp_postmeta.post_id
+            INNER JOIN wp_term_relationships 
+            ON wp_postmeta.post_id = wp_term_relationships.object_id
+            INNER JOIN wp_term_taxonomy 
+            ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+            INNER JOIN wp_terms 
+            ON wp_terms.term_id = wp_term_taxonomy.term_id
+            WHERE wp_posts.post_type = 'team'"
+        );
     }
 
 
