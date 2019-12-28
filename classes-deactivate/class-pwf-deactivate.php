@@ -12,7 +12,7 @@ class PWF_Deactivate{
     public function deactivate_plugin(){
         $this->unregister_custom_post_type();
         $this->unregister_taxonomies();
-        $this->delete_posts_and_related_data();
+        $this->delete_posts_postmeta_taxonomies_terms();
     }
 
     public function unregister_custom_post_type(){
@@ -25,7 +25,7 @@ class PWF_Deactivate{
         unregister_taxonomy( 'position' );
     }
 
-    public function delete_posts_and_related_data(){
+    public function delete_posts_postmeta_taxonomies_terms(){
         global $wpdb;
         $wpdb->get_results(
             "DELETE wp_posts, wp_postmeta, wp_terms, wp_term_taxonomy, wp_term_relationships
