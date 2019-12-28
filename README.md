@@ -33,7 +33,7 @@ Most database searches make use of WP_Query as recommended.
 However the average points and plugin deactivation methods make use of more advanced wpdb queries:
 - Advanced DELETE and INNER JOIN statements when deactivating the plugin.
 - Inner Joins - joins multiple wp tables
-- Subqueries - works with columns from sub searches
+- Subqueries - a search statement searches from other searc results.
 - SUM()
 - COUNT()
 
