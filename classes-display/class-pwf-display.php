@@ -114,11 +114,11 @@ class PWF_Display{
         foreach( $results as $result ){
             if( $result->position == 'Winner' ){
                 $html .= '<h3>Average Points per winner:</h3>';
-                $html .= '<h2>' . round( $result->points_total / $result->total ) . '</h2>';
+                $html .= '<h2>' . round( ( $result->points_total / $result->total ), 2 ) . '</h2>';
             }
             if( $result->position == 'Runner Up' ){
                 $html .= '<h3>Average Points per runner-up:</h3>';
-                $html .= '<h2>' . round( $result->points_total / $result->total ) . '</h2>';
+                $html .= '<h2>' . round( ( $result->points_total / $result->total), 2 ) . '</h2>';
             }
         }
         return $html;
