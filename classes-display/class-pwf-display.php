@@ -193,6 +193,12 @@ class PWF_Display{
             $html .= '<option value="winners-lowest-points">Winners - Lowest points</option>';
         }
 
+        if( $selected_option == 'runners-up-lowest-points' ){
+            $html .= '<option value="runners-up-lowest-points" selected>Runners-up - Lowest points</option>';
+        }else{
+            $html .= '<option value="runners-up-lowest-points">Runners-up - Lowest points</option>';
+        }
+
         if( $selected_option == 'winners-most-goals' ){
             $html .= '<option value="winners-most-goals" selected>Winners - Most Goals Scored</option>';
         }else{
