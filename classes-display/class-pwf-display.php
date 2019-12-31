@@ -55,6 +55,12 @@ class PWF_Display{
             );
         }
 
+        if( $selected_option == 'runners-up-lowest-points' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_runners_up_lowest_points()
+            );
+        }
+
         if( $selected_option == 'winners-most-goals' ){
             return $this->get_results_in_table_format( 
                 $this->model_class->get_winners_most_goals()
