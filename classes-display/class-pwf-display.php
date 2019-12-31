@@ -206,9 +206,9 @@ class PWF_Display{
         }
 
         if( $selected_option == 'runners-up-most-goals' ){
-            $html .= '<option value="runners-up-most-goals" selected>Winners - Most Goals Scored</option>';
+            $html .= '<option value="runners-up-most-goals" selected>Runners-up - Most Goals Scored</option>';
         }else{
-            $html .= '<option value="runners-up-most-goals">Winners - Most Goals Scored</option>';
+            $html .= '<option value="runners-up-most-goals">Runners-up - Most Goals Scored</option>';
         }
 
         if( $selected_option == 'winners-least-goals-conceded' ){
