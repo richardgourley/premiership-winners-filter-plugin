@@ -83,7 +83,7 @@ class PWF_Model{
             'post_type'  => 'team',
             'meta_key'   => 'points',
             'orderby'    => 'meta_value_num',
-            'order'      => 'DESC',
+            'order'      => 'ASC',
             'posts_per_page' => '-1',
             'tax_query' => array(
                 array(
