@@ -67,9 +67,22 @@ class PWF_Display{
             );
         }
 
+        if( $selected_option == 'runners-up-most-goals' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_runners_up_most_goals()
+            );
+        }
+
+
         if( $selected_option == 'winners-least-goals-conceded' ){
             return $this->get_results_in_table_format( 
                 $this->model_class->get_winners_least_goals_conceded()
+            );
+        }
+
+        if( $selected_option == 'runners-up-least-goals-conceded' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_runners_up_least_goals_conceded()
             );
         }
 
