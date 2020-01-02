@@ -73,7 +73,6 @@ class PWF_Display{
             );
         }
 
-
         if( $selected_option == 'winners-least-goals-conceded' ){
             return $this->get_results_in_table_format( 
                 $this->model_class->get_winners_least_goals_conceded()
@@ -228,6 +227,12 @@ class PWF_Display{
             $html .= '<option value="winners-least-goals-conceded" selected>Winners - Least Goals Conceded</option>';
         }else{
             $html .= '<option value="winners-least-goals-conceded">Winners - Least Goals Conceded</option>';
+        }
+
+        if( $selected_option == 'runners-up-least-goals-conceded' ){
+            $html .= '<option value="runners-up-least-goals-conceded" selected>Runners Up - Least Goals Conceded</option>';
+        }else{
+            $html .= '<option value="runners-up-least-goals-conceded">Runners Up - Least Goals Conceded</option>';
         }
 
         if( $selected_option == 'average-points'){
