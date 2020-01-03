@@ -247,6 +247,12 @@ class PWF_Display{
             $html .= '<option value="winners-least-goals-scored">Winners - Least Goals Scored</option>';
         }
 
+        if( $selected_option == 'runners-up-least-goals-scored' ){
+            $html .= '<option value="runners-up-least-goals-scored" selected>Runners-up - Least Goals Scored</option>';
+        }else{
+            $html .= '<option value="runners-up-least-goals-scored">Runners-up - Least Goals Scored</option>';
+        }
+
         if( $selected_option == 'winners-least-goals-conceded' ){
             $html .= '<option value="winners-least-goals-conceded" selected>Winners - Least Goals Conceded</option>';
         }else{
