@@ -73,6 +73,12 @@ class PWF_Display{
             );
         }
 
+        if( $selected_option == 'winners-least-goals-scored' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_winners_least_goals_scored()
+            );
+        }
+
         if( $selected_option == 'winners-least-goals-conceded' ){
             return $this->get_results_in_table_format( 
                 $this->model_class->get_winners_least_goals_conceded()
