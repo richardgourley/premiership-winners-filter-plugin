@@ -78,6 +78,12 @@ class PWF_Display{
                 $this->model_class->get_winners_least_goals_scored()
             );
         }
+    
+        if( $selected_option == 'runners-up-least-goals-scored' ){
+            return $this->get_results_in_table_format( 
+                $this->model_class->get_runners_up_least_goals_scored()
+            );
+        }
 
         if( $selected_option == 'winners-least-goals-conceded' ){
             return $this->get_results_in_table_format( 
