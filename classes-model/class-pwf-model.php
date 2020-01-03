@@ -158,6 +158,26 @@ class PWF_Model{
         return $query;
     }
 
+    public function get_runners_up_least_goals_scored(){
+        $args = array(
+            'post_type'  => 'team',
+            'meta_key'   => 'Goals For',
+            'orderby'    => 'meta_value_num',
+            'order'      => 'DESC',
+            'posts_per_page' => '-1',
+            'tax_query' => array(
+                array(
+                    'taxonomy' => 'position',
+                    'field' => 'slug',
+                    'terms' => 'runner-up'
+                )
+            )
+        );
+        $query = new WP_Query( $args );
+
+        return $query;
+    }
+
     public function get_winners_least_goals_conceded(){
         $args = array(
             'post_type'  => 'team',
