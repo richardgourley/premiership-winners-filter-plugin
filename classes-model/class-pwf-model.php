@@ -163,7 +163,7 @@ class PWF_Model{
             'post_type'  => 'team',
             'meta_key'   => 'Goals For',
             'orderby'    => 'meta_value_num',
-            'order'      => 'DESC',
+            'order'      => 'ASC',
             'posts_per_page' => '-1',
             'tax_query' => array(
                 array(
