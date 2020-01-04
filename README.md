@@ -10,13 +10,19 @@ SPORTS SITES - This could be a useful plugin for any football or sports based we
 
 DISPLAY:
 The plugin has a form allowing the user to filter and compare:
-1. Highest points total for winners and runners-up in all seasons.
-2. Winners highest points total
-3. Runners-up highest points total
-4. Winners lowest points total
-5. Winner most goals scored
-6. Winner least goals conceded
-7. Average points for winners and runners-up overall
+1. High points table showing and comparing winners and runners-up
+2. Average points for winners and average points for runners-up
+3. Winners highest points total
+4. Runners-up highest points total
+5. Winners lowest points total
+6. Runners-up lowest points total
+7. Winner most goals scored
+8. Runner-up most goals scored
+9. Winner least goals scored
+10. Runner-up least goals scored
+11. Winner least goals conceded
+12. Runner-up least goals conceded
+
 
 SET UP
 On activation, this plugin creates a custom post type called 'teams'.
