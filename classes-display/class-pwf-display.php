@@ -142,6 +142,7 @@ class PWF_Display{
         $html = '';
         $html .= '<p>Last 11 premiership seasons:</p>';
         foreach( $results as $result ){
+            $position = esc_html( $result->position );
             if( $result->position == 'Winner' ){
                 $html .= '<h3>Average Points per winner:</h3>';
                 $html .= '<h2>' . number_format( $result->points_total / $result->total, 2 ) . '</h2>';
