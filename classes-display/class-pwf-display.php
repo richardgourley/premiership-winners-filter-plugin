@@ -126,7 +126,7 @@ class PWF_Display{
             $results .= '<td>' . esc_html( get_the_terms( $result->ID, 'season' )[0]->name ) . '</td>';
             $results .= '<td>' . esc_html( get_the_terms( $result->ID, 'position' )[0]->name ) . '</td>';
             $results .= '<td>' . $result->post_title . '</td>';
-            $results .= '<td>' . get_post_meta( $result->ID, 'Goals For', true ) . '</td>';
+            $results .= '<td>' . esc_html( get_post_meta( $result->ID, 'Goals For', true ) ) . '</td>';
             $results .= '<td>' . get_post_meta( $result->ID, 'Goals Against', true ) . '</td>';
             $results .= '<td><strong>' . get_post_meta( $result->ID, 'Points', true ) . '</strong></td>';
             $results .= '</tr>';
