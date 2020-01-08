@@ -124,7 +124,7 @@ class PWF_Display{
         foreach( $posts->posts as $result){
             $results .= '<tr>';
             $results .= '<td>' . esc_html( get_the_terms( $result->ID, 'season' )[0]->name ) . '</td>';
-            $results .= '<td>' . get_the_terms( $result->ID, 'position' )[0]->name . '</td>';
+            $results .= '<td>' . esc_html( get_the_terms( $result->ID, 'position' )[0]->name ) . '</td>';
             $results .= '<td>' . $result->post_title . '</td>';
             $results .= '<td>' . get_post_meta( $result->ID, 'Goals For', true ) . '</td>';
             $results .= '<td>' . get_post_meta( $result->ID, 'Goals Against', true ) . '</td>';
