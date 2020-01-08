@@ -147,11 +147,11 @@ class PWF_Display{
             $total = esc_html( $result->total );
             if( $position == 'Winner' ){
                 $html .= '<h3>Average Points per winner:</h3>';
-                $html .= '<h2>' . number_format( $result->points_total / $result->total, 2 ) . '</h2>';
+                $html .= '<h2>' . number_format( $points_total / $total, 2 ) . '</h2>';
             }
             if( $position == 'Runner Up' ){
                 $html .= '<h3>Average Points per runner-up:</h3>';
-                $html .= '<h2>' . number_format( $result->points_total / $result->total, 2 ) . '</h2>';
+                $html .= '<h2>' . number_format( $points_total / $total, 2 ) . '</h2>';
             }
         }
         return $html;
