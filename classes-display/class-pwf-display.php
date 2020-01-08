@@ -21,7 +21,7 @@ class PWF_Display{
             && isset( $_POST['pwf_form_nonce'] )
             && wp_verify_nonce( $_POST['pwf_form_nonce'], 'pwf_form_action' )){
 
-            $selected_option .= $_POST['pwf-options'];
+            $selected_option .= sanitize_text_field( $_POST['pwf-options'] );
         }else{
             $selected_option .= 'get-all-teams';
         }
