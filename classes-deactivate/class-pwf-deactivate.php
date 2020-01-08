@@ -15,7 +15,7 @@ class PWF_Deactivate{
         $this->delete_posts_postmeta_taxonomies_terms();
     }
 
-    public function unregister_custom_post_type(){
+    private function unregister_custom_post_type(){
         unregister_post_type( 'team' );
     }
 
