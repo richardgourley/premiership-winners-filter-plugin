@@ -143,11 +143,13 @@ class PWF_Display{
         $html .= '<p>Last 11 premiership seasons:</p>';
         foreach( $results as $result ){
             $position = esc_html( $result->position );
-            if( $result->position == 'Winner' ){
+            $points_total = esc_html( $result->points_total );
+            $total = esc_html( $result->total );
+            if( $position == 'Winner' ){
                 $html .= '<h3>Average Points per winner:</h3>';
                 $html .= '<h2>' . number_format( $result->points_total / $result->total, 2 ) . '</h2>';
             }
-            if( $result->position == 'Runner Up' ){
+            if( $position == 'Runner Up' ){
                 $html .= '<h3>Average Points per runner-up:</h3>';
                 $html .= '<h2>' . number_format( $result->points_total / $result->total, 2 ) . '</h2>';
             }
