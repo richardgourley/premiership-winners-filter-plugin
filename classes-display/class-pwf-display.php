@@ -14,7 +14,7 @@ class PWF_Display{
         return $this->display_form_and_results( $results_as_table, $selected_option );
     }
 
-    public function handle_form(){
+    private function handle_form(){
         $selected_option = '';
 
         if( $_SERVER['REQUEST_METHOD'] == 'POST' 
