@@ -19,7 +19,7 @@ class PWF_Deactivate{
         unregister_post_type( 'team' );
     }
 
-    public function unregister_taxonomies(){
+    private function unregister_taxonomies(){
         unregister_taxonomy( 'season' );
         unregister_taxonomy( 'team' );
         unregister_taxonomy( 'position' );
