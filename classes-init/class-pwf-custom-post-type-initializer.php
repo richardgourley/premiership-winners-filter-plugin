@@ -11,7 +11,7 @@ class PWF_Custom_Post_Type_Initializer{
         flush_rewrite_rules();
     }
 
-    public function add_team_post_type(){
+    private function add_team_post_type(){
         $labels = array(
             "name" => __( "Team" ),
             "singular_name" => __( "Team" ),
