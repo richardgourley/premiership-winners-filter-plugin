@@ -107,7 +107,7 @@ class PWF_Display{
         return '';
     }
 
-    public function get_results_in_table_format($posts){
+    private function get_results_in_table_format($posts){
         $results = '';
 
         $results .= '<div class="pwf-display-table">';
