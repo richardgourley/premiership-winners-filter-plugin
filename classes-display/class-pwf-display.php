@@ -138,7 +138,7 @@ class PWF_Display{
         return $results;
     }
 
-    public function display_average_points($results){
+    private function display_average_points($results){
         $html = '';
         $html .= '<p>Last 11 premiership seasons:</p>';
         foreach( $results as $result ){
