@@ -32,7 +32,7 @@ class PWF_Display{
     /****
     *@return - html string of results in table form
     ****/
-    public function get_results($selected_option){
+    private function get_results($selected_option){
         if( $selected_option == 'get-all-teams' ){
             //returns a table of results
             return $this->get_results_in_table_format( 
