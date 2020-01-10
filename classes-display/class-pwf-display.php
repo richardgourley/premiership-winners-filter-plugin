@@ -157,7 +157,7 @@ class PWF_Display{
         return $html;
     }
 
-    public function display_form_and_results($results, $selected_option){
+    private function display_form_and_results($results, $selected_option){
         $html = '';
         $html .= '<div class="pwf-intro-text">';
         $html .= '<h4>We took all the data of Premiership winners and runners up over the last 11 years. Filter the results from the drop-down menu below.</h4>';
