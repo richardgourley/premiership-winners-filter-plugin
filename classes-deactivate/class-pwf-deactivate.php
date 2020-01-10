@@ -26,7 +26,7 @@ class PWF_Deactivate{
         unregister_taxonomy( 'position' );
     }
 
-    public function delete_posts_postmeta_taxonomies_terms(){
+    private function delete_posts_postmeta_taxonomies_terms(){
         global $wpdb;
         $wpdb->get_results(
             "DELETE wp_posts, wp_postmeta, wp_terms, wp_term_taxonomy, wp_term_relationships
