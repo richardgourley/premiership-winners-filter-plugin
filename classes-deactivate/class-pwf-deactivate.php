@@ -17,6 +17,7 @@ class PWF_Deactivate{
 
     private function unregister_custom_post_type(){
         unregister_post_type( 'team' );
+        flush_rewrite_rules();
     }
 
     private function unregister_taxonomies(){
