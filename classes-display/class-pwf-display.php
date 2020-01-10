@@ -193,7 +193,7 @@ class PWF_Display{
     * returns a string of html of options for the filter form
     * highlights options as 'selected' for most recent form request
     ***/
-    public function generate_form_options($selected_option){
+    private function generate_form_options($selected_option){
         $html = '';
         
         if( $selected_option == 'get-all-teams' ){
