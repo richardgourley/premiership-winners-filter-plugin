@@ -8,9 +8,7 @@
 }
 
 .pwf-flexbox-grid > div{
-  background-color: red;
-  padding: 40px;
-  color:white;
+  padding:10px;
   width:auto;
   margin-right:3px;
   margin-bottom: 3px;
