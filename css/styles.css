@@ -1,19 +1,3 @@
-.pwf-flexbox-grid{
-  display:flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  border:1px solid #e6e3e3;
-  background-color: #fcfcfc;
-  padding:16px;
-}
-
-.pwf-flexbox-grid > div{
-  padding:8px;
-  width:auto;
-  margin-right:3px;
-  margin-bottom: 3px;
-}
-
 @media screen and (max-width: 480px) {
   .pwf-flexbox-grid{
     display:flex;
@@ -46,6 +30,21 @@
 }
 
 @media screen and (min-width: 481px) and (max-width: 1160px) {
+  .pwf-flexbox-grid{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border:1px solid #e6e3e3;
+    background-color: #fcfcfc;
+    padding:10px;
+  }
+
+  .pwf-flexbox-grid > div{
+    padding:8px;
+    width:auto;
+    margin-right:3px;
+    margin-bottom: 3px;
+  }
   .pwf-intro-text{
     padding:8px;
   }
@@ -57,11 +56,26 @@
   }
   .pwf-display-table{
     width:100%;
-    font-size:100%;
+    font-size:90%;
   }
 }
 
 @media screen and (min-width: 1161px) {
+  .pwf-flexbox-grid{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    border:1px solid #e6e3e3;
+    background-color: #fcfcfc;
+    padding:16px;
+  }
+
+  .pwf-flexbox-grid > div{
+    padding:8px;
+    width:auto;
+    margin-right:3px;
+    margin-bottom: 3px;
+  }
   .pwf-intro-text{
     padding:10px;
   }
