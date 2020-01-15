@@ -159,10 +159,12 @@ class PWF_Display{
 
     private function display_form_and_results($results, $selected_option){
         $html = '';
+
         $html .= '<div class="pwf-intro-text">';
         $html .= '<h4>We took all the data of Premiership winners and runners up over the last 11 years. Filter the results from the drop-down menu below.</h4>';
         $html .= '</div>';
-        $html .= '<div class="pwf-grid">';
+
+        $html .= '<div class="pwf-flexbox-grid">';
 
         $html .= '<div>';
         $html .= '<p>Filter the results</p>';
