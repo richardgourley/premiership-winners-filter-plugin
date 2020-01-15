@@ -1,3 +1,7 @@
+.pwf-flexbox-grid{
+  
+}
+
 @media screen and (max-width: 480px) {
   .pwf-grid{
     display:grid;
@@ -17,7 +21,8 @@
     padding-bottom:9px;
   }
   .pwf-display-table{
-    font-size:74%;
+    width:100%;
+    font-size:65%;
   }
 }
 
@@ -40,6 +45,7 @@
     padding-bottom:9px;
   }
   .pwf-display-table{
+    width:100%;
     font-size:90%;
   }
 }
@@ -63,6 +69,7 @@
     padding-bottom:9px;
   }
   .pwf-display-table{
+    width:100%;
     font-size:100%;
   }
 }
