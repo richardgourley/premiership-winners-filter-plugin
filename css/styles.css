@@ -1,5 +1,19 @@
 .pwf-flexbox-grid{
-  
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  border:1px solid #e6e3e3;
+  background-color: #fcfcfc;
+  padding:16px;
+}
+
+.pwf-flexbox-grid > div{
+  background-color: red;
+  padding: 40px;
+  color:white;
+  width:auto;
+  margin-right:3px;
+  margin-bottom: 3px;
 }
 
 @media screen and (max-width: 480px) {
