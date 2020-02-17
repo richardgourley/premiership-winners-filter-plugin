@@ -11,6 +11,8 @@
 
 if(!defined( 'ABSPATH' )) exit;
 
+define( 'PLUGIN_ROOT', dirname( __FILE__ ) );
+
 require dirname(__FILE__) . '/classes-init/class-pwf-taxonomies-initializer.php';
 require dirname(__FILE__) . '/classes-init/class-pwf-custom-post-type-initializer.php';
 require dirname(__FILE__) . '/classes-init/class-pwf-posts-initializer.php';
