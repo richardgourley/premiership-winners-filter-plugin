@@ -64,7 +64,7 @@
   .pwf-flexbox-grid{
     display:flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: center;
     border:1px solid #e6e3e3;
     background-color: #fcfcfc;
     padding:16px;
@@ -86,7 +86,6 @@
     padding-bottom:9px;
   }
   .pwf-display-table{
-    width:100%;
     font-size:100%;
   }
 }
