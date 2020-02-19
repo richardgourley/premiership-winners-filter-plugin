@@ -1,5 +1,5 @@
 <div class="pwf-intro-text">
-  <h4>We took all the data of Premiership winners and runners up over the last 11 years. Filter the results from  the drop-down menu below.
+  <h4>We took all the data of Premiership winners and runners up over the last <?php echo $number_of_seasons; ?> years. Filter the results from  the drop-down menu below.
   </h4>
   <p><?php //echo PLUGIN_ROOT; ?></p>
   <?php //echo esc_url( get_the_permalink() ); ?>
