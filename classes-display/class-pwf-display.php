@@ -10,8 +10,8 @@ class PWF_Display{
 
     public function display_results(){
         $selected_option = $this->handle_form();
-        $results_as_table = $this->get_results( $selected_option );
-        return $this->display_form_and_results( $results_as_table, $selected_option );
+        $results = $this->get_results( $selected_option );
+        return $this->display_form_and_results( $results, $selected_option );
     }
 
     private function handle_form(){
@@ -32,110 +32,54 @@ class PWF_Display{
     /****
     *@return - html string of results in table form
     ****/
-    private function get_results($selected_option){
+    private function get_results( $selected_option ){
         if( $selected_option == 'get-all-teams' ){
-            //returns a table of results
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_all_teams()
-            );
+            return $this->model_class->get_all_teams();
         }
         if( $selected_option == 'winners' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_winners()
-            );
+            return $this->model_class->get_winners();
         }
         if( $selected_option == 'runners-up' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_runners_up()
-            );
+            return $this->model_class->get_runners_up();
         }
         if( $selected_option == 'winners-lowest-points' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_winners_lowest_points()
-            );
+            return $this->model_class->get_winners_lowest_points();
         }
 
         if( $selected_option == 'runners-up-lowest-points' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_runners_up_lowest_points()
-            );
+            return $this->model_class->get_runners_up_lowest_points();
         }
 
         if( $selected_option == 'winners-most-goals' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_winners_most_goals()
-            );
+            return $this->model_class->get_winners_most_goals();
         }
 
         if( $selected_option == 'runners-up-most-goals' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_runners_up_most_goals()
-            );
+            return $this->model_class->get_runners_up_most_goals();
         }
 
         if( $selected_option == 'winners-least-goals-scored' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_winners_least_goals_scored()
-            );
+            return $this->model_class->get_winners_least_goals_scored();
         }
     
         if( $selected_option == 'runners-up-least-goals-scored' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_runners_up_least_goals_scored()
-            );
+            return $this->model_class->get_runners_up_least_goals_scored();
         }
 
         if( $selected_option == 'winners-least-goals-conceded' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_winners_least_goals_conceded()
-            );
+            return $this->model_class->get_winners_least_goals_conceded();
         }
 
         if( $selected_option == 'runners-up-least-goals-conceded' ){
-            return $this->get_results_in_table_format( 
-                $this->model_class->get_runners_up_least_goals_conceded()
-            );
+            return $this->model_class->get_runners_up_least_goals_conceded();
         }
 
         if( $selected_option == 'average-points' ){
-            return $this->display_average_points( 
-                $this->model_class->get_average_points()
-            );
+            return $this->model_class->get_average_points();
         }
         
         //return a blank string if $selected option doesn't match
         return '';
-    }
-
-    private function get_results_in_table_format($posts){
-        $results = '';
-
-        $results .= '<div class="pwf-display-table">';
-        $results .= '<table class="form-table">';
-        $results .= '<tr>';
-        $results .= '<th>Season</th>';
-        $results .= '<th>Position</th>';
-        $results .= '<th>Team</th>';
-        $results .= '<th>Goals For</th>';
-        $results .= '<th>Goals Against</th>';
-        $results .= '<th>Points</th>';
-        $results .= '</tr>';
-        
-        foreach( $posts->posts as $result){
-            $results .= '<tr>';
-            $results .= '<td>' . esc_html( get_the_terms( $result->ID, 'season' )[0]->name ) . '</td>';
-            $results .= '<td>' . esc_html( get_the_terms( $result->ID, 'position' )[0]->name ) . '</td>';
-            $results .= '<td>' . $result->post_title . '</td>';
-            $results .= '<td>' . esc_html( get_post_meta( $result->ID, 'Goals For', true ) ) . '</td>';
-            $results .= '<td>' . esc_html( get_post_meta( $result->ID, 'Goals Against', true ) ) . '</td>';
-            $results .= '<td><strong>' . esc_html( get_post_meta( $result->ID, 'Points', true ) ) . '</strong></td>';
-            $results .= '</tr>';
-        }
-
-        $results .= '</table>';
-        $results .= '</div>';
-
-        return $results;
     }
 
     private function display_average_points($results){
@@ -158,36 +102,15 @@ class PWF_Display{
     }
 
     private function display_form_and_results($results, $selected_option){
-        $html = '';
+        $form_options = $this->generate_form_options( $selected_option );
 
-        $html .= '<div class="pwf-intro-text">';
-        $html .= '<h4>We took all the data of Premiership winners and runners up over the last 11 years. Filter the results from the drop-down menu below.</h4>';
-        $html .= '</div>';
+        ob_start();
+        require_once( PLUGIN_ROOT . '/views/table.php' );
+        $output = ob_get_contents();
+        ob_end_clean();
 
-        $html .= '<div class="pwf-flexbox-grid">';
+        return $output;
 
-        $html .= '<div>';
-        $html .= '<p>Filter the results</p>';
-        $html .= '<div class="pwf-select-menu">';
-        $html .= '<form action="' . esc_url( get_the_permalink() ) . '" method="post">';
-        $html .= wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' );
-        $html .= '<select name="pwf-options">';
-        $html .= $this->generate_form_options($selected_option);
-        $html .= '</select>';
-        $html .= '</div>';
-        $html .= '<div class="pwf-form-button">';
-        $html .= '<input type="submit" value="Filter results">';
-        $html .= '</div>';
-        $html .= '</form>';
-        $html .= '</div>';
-
-        $html .= '<div>';
-        $html .= $results;
-        $html .= '</div>';
-
-        $html .= '</div>';
-
-        return $html;
     }
 
     /***
