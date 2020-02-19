@@ -241,6 +241,22 @@ class PWF_Model{
 
         return $results;
     }
+
+    //calculates how many seasons are covered. Allows dynamic future changes to number of seasons.
+    public function get_number_of_seasons(){
+        global $wpdb;
+
+        $results = $wpdb->get_results(
+            "SELECT COUNT(taxonomy) AS seasons
+            FROM wp_term_taxonomy
+            WHERE taxonomy = 'season'"
+        );
+        
+        if( $results ){
+            return $results[0]->seasons;
+        }
+        return 'many';
+    }
     
 }
 
