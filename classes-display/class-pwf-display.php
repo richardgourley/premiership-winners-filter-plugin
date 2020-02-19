@@ -103,6 +103,7 @@ class PWF_Display{
 
     private function display_form_and_results($results, $selected_option){
         $form_options = $this->generate_form_options( $selected_option );
+        $number_of_seasons = $this->model_class->get_number_of_seasons();
 
         ob_start();
         require_once( PLUGIN_ROOT . '/views/table.php' );
