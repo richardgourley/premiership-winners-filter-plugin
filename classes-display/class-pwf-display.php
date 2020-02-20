@@ -20,6 +20,7 @@ class PWF_Display{
         if( $_SERVER['REQUEST_METHOD'] == 'POST' 
             && isset( $_POST['pwf_form_nonce'] )
             && wp_verify_nonce( $_POST['pwf_form_nonce'], 'pwf_form_action' )){
+            var_dump( $_POST );
 
             $selected_option .= sanitize_text_field( $_POST['pwf-options'] );
         }else{
