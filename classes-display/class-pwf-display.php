@@ -170,6 +170,12 @@ class PWF_Display{
             $html .= '<option value="runners-up-lowest-points">Runners-up - Lowest points</option>';
         }
 
+        return $html;
+    }
+
+    private function generate_form_options_search_by_goals( $selected_option ){
+        $html = '';
+        
         if( $selected_option == 'winners-most-goals' ){
             $html .= '<option value="winners-most-goals" selected>Winners - Most Goals Scored</option>';
         }else{
@@ -208,7 +214,5 @@ class PWF_Display{
 
         return $html;
     }
-
-    private_function 
 
 }
