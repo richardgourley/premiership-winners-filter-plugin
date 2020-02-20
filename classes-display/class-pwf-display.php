@@ -20,7 +20,6 @@ class PWF_Display{
         if( $_SERVER['REQUEST_METHOD'] == 'POST' 
             && isset( $_POST['pwf_form_nonce'] )
             && wp_verify_nonce( $_POST['pwf_form_nonce'], 'pwf_form_action' )){
-            var_dump( $_POST );
 
             $selected_option .= sanitize_text_field( $_POST['pwf-options'] );
         }else{
@@ -31,7 +30,7 @@ class PWF_Display{
     }
 
     /****
-    *@return - html string of results in table form
+    *@return - array of results from $model_class query functions
     ****/
     private function get_results( $selected_option ){
         if( $selected_option == 'get-all-teams' ){
