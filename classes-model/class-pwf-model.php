@@ -220,23 +220,27 @@ class PWF_Model{
 
     public function get_average_points(){
         global $wpdb;
-        //retrieves points total for winners and runners-up
+        //retrieves average points
         $results = $wpdb->get_results(
-            "SELECT COUNT(a.post_title) AS total, a.position, SUM(a.points) AS points_total FROM
-            (SELECT wp_posts.post_title, wp_postmeta.meta_value AS points, wp_terms.name AS position
-            FROM wp_posts
-            INNER JOIN wp_postmeta
-            ON wp_posts.ID = wp_postmeta.post_id 
-            INNER JOIN wp_term_relationships
-            ON wp_postmeta.post_id = wp_term_relationships.object_id
-            INNER JOIN wp_term_taxonomy
-            ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
-            INNER JOIN wp_terms
-            ON wp_term_taxonomy.term_id = wp_terms.term_id
-            WHERE wp_posts.post_type = 'team' 
-            AND wp_postmeta.meta_key = 'Points'
-            AND (wp_terms.name = 'Winner' OR wp_terms.name = 'Runner Up')) AS a
-            GROUP BY a.position"
+            "SELECT a.name, ROUND(a.points/a.seasons,2) AS average
+            FROM 
+            (SELECT COUNT(wp_posts.post_title) AS seasons, 
+            SUM(wp_postmeta.meta_value) AS points, 
+            wp_terms.name
+                FROM wp_posts
+                INNER JOIN wp_postmeta
+                ON wp_posts.ID = wp_postmeta.post_id
+                INNER JOIN wp_term_relationships
+                ON wp_postmeta.post_id = wp_term_relationships.object_id
+                INNER JOIN wp_term_taxonomy
+                ON wp_term_relationships.term_taxonomy_id = wp_term_taxonomy.term_taxonomy_id
+                INNER JOIN wp_terms
+                ON wp_term_taxonomy.term_id = wp_terms.term_id
+                WHERE wp_posts.post_type = 'team'
+                AND wp_postmeta.meta_key = 'Points'
+                AND (wp_terms.name = 'Winner' OR wp_terms.name = 'Runner Up')
+            GROUP BY wp_terms.name
+            ORDER BY points DESC) as a;"
         );
 
         return $results;
@@ -255,9 +259,10 @@ class PWF_Model{
         if( $results ){
             return $results[0]->seasons;
         }
-        return 'many';
+        return 'a number of';
     }
     
 }
+
 
 
