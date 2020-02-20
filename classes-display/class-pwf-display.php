@@ -11,7 +11,7 @@ class PWF_Display{
     public function display_results(){
         $selected_option = $this->handle_form();
         $results = $this->get_results( $selected_option );
-        return $this->display_form_and_results( $results, $selected_option );
+        return $this->display_forms_and_results( $results, $selected_option );
     }
 
     private function handle_form(){
@@ -101,9 +101,21 @@ class PWF_Display{
         return $html;
     }
 
-    private function display_form_and_results($results, $selected_option){
-        $form_options = $this->generate_form_options( $selected_option );
+    private function display_forms_and_results($results, $selected_option){
+        //keeps previously selected option acive in select box
+        $form_options_search_by_points = $this->generate_form_options_search_by_points( $selected_option );
+        $form_options_search_by_goals = $this->generate_form_options_search_by_goals( $selected_option );
+
         $number_of_seasons = $this->model_class->get_number_of_seasons();
+
+        if( $selected_option == 'average-points' ){
+            ob_start();
+            require_once( PLUGIN_ROOT . '/views/average-points.php' );
+            $output = ob_get_contents();
+            ob_end_clean();
+
+            return $output;
+        }
 
         ob_start();
         require_once( PLUGIN_ROOT . '/views/table.php' );
@@ -119,7 +131,7 @@ class PWF_Display{
     * returns a string of html of options for the filter form
     * highlights options as 'selected' for most recent form request
     ***/
-    private function generate_form_options($selected_option){
+    private function generate_form_options_search_by_points($selected_option){
         $html = '';
         
         if( $selected_option == 'get-all-teams' ){
@@ -196,5 +208,7 @@ class PWF_Display{
 
         return $html;
     }
+
+    private_function 
 
 }
