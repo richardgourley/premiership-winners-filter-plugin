@@ -58,7 +58,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_winners_lowest_points(){
+    public function winners_lowest_points(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'points',
@@ -78,7 +78,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_runners_up_lowest_points(){
+    public function runners_up_lowest_points(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'points',
@@ -98,7 +98,7 @@ class PWF_Model{
         return $query;
     }
     
-    public function get_winners_most_goals(){
+    public function winners_most_goals(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'Goals For',
@@ -118,7 +118,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_runners_up_most_goals(){
+    public function runners_up_most_goals(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'Goals For',
@@ -138,7 +138,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_winners_least_goals_scored(){
+    public function winners_least_goals(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'Goals For',
@@ -158,7 +158,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_runners_up_least_goals_scored(){
+    public function runners_up_least_goals(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'Goals For',
@@ -178,7 +178,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_winners_least_goals_conceded(){
+    public function winners_least_goals_conceded(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'Goals Against',
@@ -198,7 +198,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_runners_up_least_goals_conceded(){
+    public function runners_up_least_goals_conceded(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'Goals Against',
@@ -218,7 +218,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_average_points(){
+    public function average_points(){
         global $wpdb;
         //retrieves average points
         $results = $wpdb->get_results(
