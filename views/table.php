@@ -10,11 +10,31 @@
       <form action="<?php esc_url( get_the_permalink() ) ?>" method="post">
       <?php wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' ); ?>
       <select name="pwf-options">
-        <option value="winners_runners_up_highest_points">Winners & runners-up - Highest Points</option>
-        <option value="winners_highest_points">Winners - Highest Points</option>
-        <option value="runners_up_highest_points">Runners-Up - Highest Points</option>
-        <option value="winners_lowest_points">Winners - Lowest Points</option>
-        <option value="runners_up_lowest_points">Runners-Up - Lowest Points</option>
+        <option 
+          value="winners_runners_up_highest_points"
+          <?php if( $selected_option == 'winners_runners_up_highest_points'){ echo 'selected'; } ?>>
+          Winners & runners-up - Highest Points
+        </option>
+        <option 
+          value="winners_highest_points"
+          <?php if( $selected_option == 'winners_highest_points'){ echo 'selected'; } ?>>
+          Winners - Highest Points
+        </option>
+        <option 
+          value="runners_up_highest_points"
+          <?php if( $selected_option == 'runners_up_highest_points'){ echo 'selected'; } ?>>
+          Runners-Up - Highest Points
+        </option>
+        <option 
+          value="winners_lowest_points"
+          <?php if( $selected_option == 'winners_lowest_points'){ echo 'selected'; } ?>>
+          Winners - Lowest Points
+        </option>
+        <option 
+          value="runners_up_lowest_points"
+          <?php if( $selected_option == 'runners_up_lowest_points'){ echo 'selected'; } ?>>
+          Runners-Up - Lowest Points
+        </option>
       </select>
     </div>
       <div class="pwf-form-button">
@@ -27,12 +47,36 @@
       <form action="<?php esc_url( get_the_permalink() ) ?>" method="post">
       <?php wp_nonce_field( 'pwf_form_action', 'pwf_form_nonce' ); ?>
       <select name="pwf-options">
-        <option value="winners_most_goals">Winners - Most goals</option>
-        <option value="runners_up_most_goals">Runners-Up - Most goals</option>
-        <option value="winners_least_goals">Winners - Least goals</option>
-        <option value="runners_up_least_goals">Runners-Up - Least goals</option>
-        <option value="winners_least_goals_conceded">Winners - Least goals conceded</option>
-        <option value="runners_up_least_goals_conceded">Runners-Up - Least goals conceded</option>
+        <option 
+          value="winners_most_goals"
+          <?php if( $selected_option == 'winners_most_goals'){ echo 'selected'; } ?>>
+          Winners - Most goals
+        </option>
+        <option 
+          value="runners_up_most_goals"
+          <?php if( $selected_option == 'runners_up_most_goals'){ echo 'selected'; } ?>>
+          Runners-Up - Most goals
+        </option>
+        <option 
+          value="winners_least_goals"
+          <?php if( $selected_option == 'winners_least_goals'){ echo 'selected'; } ?>>
+          Winners - Least goals
+        </option>
+        <option 
+          value="runners_up_least_goals"
+          <?php if( $selected_option == 'runners_up_least_goals'){ echo 'selected'; } ?>>
+          Runners-Up - Least goals
+        </option>
+        <option 
+          value="winners_least_goals_conceded"
+          <?php if( $selected_option == 'winners_least_goals_conceded'){ echo 'selected'; } ?>>
+          Winners - Least goals conceded
+        </option>
+        <option 
+          value="runners_up_least_goals_conceded"
+          <?php if( $selected_option == 'runners_up_least_goals_conceded'){ echo 'selected'; } ?>>
+          Runners-Up - Least goals conceded
+        </option>
 
       </select>
     </div>
