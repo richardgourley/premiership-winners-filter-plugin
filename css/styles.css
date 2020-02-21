@@ -29,6 +29,10 @@
   .pwf-display-table-div{
     padding:5px;
   }
+  .pwf-table-heading{
+    color:white;
+    background:#b0b0b0;
+  }
 }
 
 @media screen and (min-width: 481px) and (max-width: 1160px) {
@@ -61,6 +65,11 @@
   }
   .pwf-display-table-div{
     padding:5px;
+    min-width: 60%;
+  }
+  .pwf-table-heading{
+    color:white;
+    background:#b0b0b0;
   }
 }
 
@@ -97,11 +106,7 @@
   }
   .pwf-table-heading{
     color:white;
-    background:#c4c4c4;
-  }
-  .pwf-table-row{
-    color:white;
-    background-color:grey;
+    background:#b0b0b0;
   }
   
 }
