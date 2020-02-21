@@ -58,6 +58,7 @@
   <div class="pwf-display-table-div">
     <div class="pwf-display-table">
       <table class="form-table">
+        <p><?php echo $title; ?></p>
         <tr class="pwf-table-heading">
           <th>Team, Season, Position</th>
           <th>Goals For</th>
