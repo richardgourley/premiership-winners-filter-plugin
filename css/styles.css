@@ -2,8 +2,8 @@
   .pwf-flexbox-grid{
     display:flex;
     flex-wrap: wrap;
-    border:1px solid #e6e3e3;
-    background-color: #fcfcfc;
+    border:1px solid #fcfcfc;
+    background-color: #fff;
     padding:2px;
   }
 
@@ -24,7 +24,10 @@
   }
   .pwf-display-table{
     width:100%;
-    font-size:62%;
+    font-size:100%;
+  }
+  .pwf-display-table-div{
+    padding:5px;
   }
 }
 
@@ -32,8 +35,8 @@
   .pwf-flexbox-grid{
     display:flex;
     flex-wrap: wrap;
-    border:1px solid #e6e3e3;
-    background-color: #fcfcfc;
+    border:1px solid #fcfcfc;
+    background-color: #fff;
     padding:10px;
   }
 
@@ -54,7 +57,10 @@
   }
   .pwf-display-table{
     width:100%;
-    font-size:90%;
+    font-size:100%;
+  }
+  .pwf-display-table-div{
+    padding:5px;
   }
 }
 
@@ -62,8 +68,8 @@
   .pwf-flexbox-grid{
     display:flex;
     flex-wrap: wrap;
-    border:1px solid #e6e3e3;
-    background-color: #fcfcfc;
+    border:2px solid #fcfcfc;
+    background-color: #fff;
     padding:16px;
   }
 
@@ -85,4 +91,17 @@
   .pwf-display-table{
     font-size:100%;
   }
+  .pwf-display-table-div{
+    padding:5px;
+    min-width: 60%;
+  }
+  .pwf-table-heading{
+    color:white;
+    background:#c4c4c4;
+  }
+  .pwf-table-row{
+    color:white;
+    background-color:grey;
+  }
+  
 }
