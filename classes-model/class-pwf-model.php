@@ -5,7 +5,7 @@ class PWF_Model{
         
     }
 
-    public function get_all_teams(){
+    public function winners_runners_up_highest_points(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'points',
@@ -18,7 +18,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_winners(){
+    public function winners_highest_points(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'points',
@@ -38,7 +38,7 @@ class PWF_Model{
         return $query;
     }
 
-    public function get_runners_up(){
+    public function runners_up_highest_points(){
         $args = array(
             'post_type'  => 'team',
             'meta_key'   => 'points',
